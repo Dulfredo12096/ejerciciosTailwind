@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú Responsive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <nav class="bg-sky-200 shadow-md p-4 flex justify-between items-center">
+    <div class="text-xl font-bold text-blue-700">Ejercicios Tailwind</div>
+    <button id="menu-btn" class="md:hidden text-gray-600 text-3xl focus:outline-none">
+      &#9776;
+    </button>
+    <ul id="menu" class="hidden md:flex md:space-x-6 mt-4 md:mt-0 md:items-center text-gray-700 font-medium">
+        <li><a href="index.html" class="hover:text-blue-900">Menu</a></li>
+        <li><a href="Ejercicio1.html" class="hover:text-blue-900">Ejercicio 1</a></li>
+        <li><a href="Ejercicio2.html" class="hover:text-blue-900">Ejercicio 2</a></li>
+        <li><a href="Ejercicio3.html" class="hover:text-blue-900">Ejercicio 3</a></li>
+        <li><a href="Ejercicio4.html" class="hover:text-blue-900">Ejercicio 4</a></li>
+    </ul>
+  </nav>
+  <section id="ej4" class="p-6 flex items-center justify-center min-h-screen">
+    <div class="text-center">
+      <h2 class="text-2xl font-bold mb-6">Formulario de Información Personal</h2>
+      <form class="bg-white p-6 rounded-lg shadow space-y-6 max-w-lg w-full">
+        <div>
+          <label for="name" class="block text-sm font-medium mb-1">Nombre Completo</label>
+          <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Juan Pérez" required />
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium mb-1">Correo Electrónico</label>
+          <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="juan.perez@example.com" required />
+        </div>
+        <div>
+          <label for="dob" class="block text-sm font-medium mb-1">Fecha de Nacimiento</label>
+          <input type="date" id="dob" name="dob" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" required />
+        </div>
+        <div>
+          <label for="address" class="block text-sm font-medium mb-1">Dirección</label>
+          <input type="text" id="address" name="address" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Calle 123, Ciudad, País" required />
+        </div>
+        <div>
+          <label for="comments" class="block text-sm font-medium mb-1">Comentarios</label>
+          <textarea id="comments" name="comments" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" rows="4" placeholder="Escribe tus comentarios aquí..."></textarea>
+        </div>
+        <div>
+          <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-700 transition duration-300">
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+  
+
+
+
+
+  <script>
+    document.getElementById("menu-btn").addEventListener("click", () => {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("hidden");
+    });
+    const form = document.getElementById('infoForm');
+  const successMsg = document.getElementById('successMsg');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Evita el envío automático
+
+    if (form.checkValidity()) {
+      successMsg.classList.remove('hidden');
+      form.reset(); // Limpia el formulario
+    } else {
+      form.reportValidity(); // Muestra errores si los hay
+    }
+  });
+  </script>
